@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create New Service</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 5px;
+    }
+    input, select {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    input[type="submit"] {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+  <div class="container">
+    <h1>Create New Service</h1>
+    <form action="/provider/create" method="post" enctype="multipart/form-data">
+      <label for="image">Upload Image:</label>
+      <input type="file" id="image" name="image" required>
+      
+      <label for="name">Service Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="price">Price:</label>
+      <input type="number" id="price" name="price" required>
+
+      <label for="discount">Discount (%):</label>
+      <input type="number" id="discount" name="discount" value="0">
+
+      <label for="bgcolor">Background Color:</label>
+      <input type="text" id="bgcolor" name="bgcolor" required>
+
+      <label for="panelcolor">Panel Color:</label>
+      <input type="text" id="panelcolor" name="panelcolor" required>
+
+      <label for="textcolor">Text Color:</label>
+      <input type="text" id="textcolor" name="textcolor" required>
+
+      <input type="submit" value="Create Service">
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service Dashboard</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+    header, footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+    }
+    header {
+      background-color: #007bff;
+    }
+    .content {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+    }
+    footer {
+      background-color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  <header>
+    <h1>Service Dashboard</h1>
+  </header>
+  
+  <div class="content">
+    <h2>Welcome to your service dashboard, </h2>
+    <p>Here you can manage your services and view your statistics.</p>
+  </div>
+  
+  <footer>
+    <p>&copy; 2024 Service Provider. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Provider List</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .provider-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+    }
+    .provider-card img {
+      max-width: 150px;
+      border-radius: 10px;
+      margin-right: 20px;
+    }
+    .provider-info {
+      flex: 1;
+    }
+    .provider-info h2 {
+      margin: 0 0 10px;
+    }
+    .provider-info p {
+      margin: 5px 0;
+    }
+    .provider-info .price {
+      color: #007bff;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    .provider-actions {
+      text-align: right;
+    }
+    .provider-actions a {
+      color: #007bff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+    .provider-actions a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  <div class="container">
+    <h1>Providers</h1>
+    <% providers.forEach(provider => { %>
+      <div class="provider-card">
+        <img src="data:image/jpeg;base64,<%= provider.image %>" alt="<%= provider.name %>">
+        <div class="provider-info">
+          <h2><%= provider.name %></h2>
+          <p><%= provider.description %></p>
+          <p class="price">$<%= provider.price %></p>
+          <p>Discount: <%= provider.discount %>%</p>
+          <p>Background Color: <%= provider.bgcolor %></p>
+          <p>Panel Color: <%= provider.panelcolor %></p>
+          <p>Text Color: <%= provider.textcolor %></p>
+        </div>
+        <div class="provider-actions">
+          <a href="#">Free Shipping</a>
+          <a href="#">View Details</a>
+          <form action="/cart/add" method="post">
+            <input type="hidden" name="serviceId" value="<%= provider._id %>">
+            <button type="submit">Add to Cart</button>
+          </form>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>
