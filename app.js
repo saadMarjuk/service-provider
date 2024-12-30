@@ -19,6 +19,7 @@ const ownersRouter=require("./routes/ownersRouter");
 const userRouter=require("./routes/userRouter");
 const providerRouter=require("./routes/providerRouter")
 const cartRouter = require("./routes/cartRouter"); 
+const deletingRouter = require('./routes/deletingRouter');
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
@@ -40,6 +41,7 @@ app.use("/owner",ownersRouter);
 app.use("/user",userRouter);
 app.use("/provider",providerRouter);
 app.use("/cart", cartRouter); 
+app.use('/delete', deletingRouter);
 
 
 
