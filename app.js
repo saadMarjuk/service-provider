@@ -5,6 +5,7 @@ const app = express();
 const mongoose = require('mongoose');
 
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 // Use this to replace the line causing the warning
 
@@ -20,6 +21,7 @@ const userRouter=require("./routes/userRouter");
 const providerRouter=require("./routes/providerRouter")
 const cartRouter = require("./routes/cartRouter"); 
 const deletingRouter = require('./routes/deletingRouter');
+const adminRouter = require('./routes/adminRouter'); // Admin routes
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
@@ -35,6 +37,13 @@ app.use(session({
 }));
 app.use(flash());
 
+const adminCredentials = {
+   email: process.env.ADMIN_EMAIL,
+    password: process.env.ADMIN_PASSWORD }; 
+    // Make admin credentials available throughout the app 
+app.locals.adminCredentials = adminCredentials;
+
+
 app.set("view engine","ejs");
 app.use("/",indexRouter);
 app.use("/owner",ownersRouter);
@@ -42,6 +51,8 @@ app.use("/user",userRouter);
 app.use("/provider",providerRouter);
 app.use("/cart", cartRouter); 
 app.use('/delete', deletingRouter);
+app.use('/admin', adminRouter); // Admin routes
+
 
 
 
