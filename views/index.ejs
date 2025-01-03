@@ -1,66 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to Service Provider</title>
-  <link rel="stylesheet" href="/styles.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      margin: 0;
-    }
-    header, footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px 0;
-    }
-    header {
-      background-color: #007bff;
-    }
-    .hero {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: url('/path/to/hero-image.jpg') no-repeat center center/cover; /* Replace with actual image path */
-      color: #fff;
-      text-align: center;
-      padding: 50px 20px;
-    }
-    .hero h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 1.2em;
-    }
-    footer {
-      background-color: #007bff;
-    }
-  </style>
-</head>
-<body>
-  <%- include('partials/navbar') %>
-  <header>
-    <h1>Welcome to Service Provider</h1>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <style>
+      /* General Styling */
+      body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
 
-  <div class="hero">
-    <div>
-      <h1>Welcome to Our Service Provider Platform</h1>
-      <p>Your one-stop solution for all your service needs.</p>
-    </div>
-  </div>
+      /* Navbar Styling */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #282e34;
+        color: #fff;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+      }
+      .navbar .logo img {
+        width: 50px;
+      }
+      .navbar .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+      .navbar .nav-links li a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+      }
+      .navbar .nav-links li a:hover {
+        color: #00b894;
+      }
 
-  <footer>
-    <p>&copy; 2024 Service Provider. All rights reserved.</p>
-  </footer>
-</body>
+      /* Parallax Sections */
+      .pimg1,
+      .pimg2,
+      .pimg3 {
+        position: relative;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      .pimg1 {
+  background-image: url('views/picture/car-wash.jpg');
+  min-height: 100vh;
+}
+.pimg2 {
+  background-image: url('views/picture/cleaning.jpg');
+  min-height: 400px;
+}
+.pimg3 {
+  background-image: url('views/picture/man-with-cam.jpg');
+  min-height: 400px;
+}
+
+
+      .ptext {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        font-size: 24px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      }
+      .textBg {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px 20px;
+        border-radius: 5px;
+      }
+
+      /* Section Styling */
+      .section {
+        padding: 50px 20px;
+        text-align: center;
+      }
+      .section-light {
+        background-color: #f4f4f4;
+        color: #666;
+      }
+      .section-dark {
+        background-color: #282e34;
+        color: #ddd;
+      }
+
+      /* Footer Styling */
+      .footer {
+        background-color: #282e34;
+        color: #fff;
+        padding: 20px 40px;
+      }
+      .footer .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .footer h3 {
+        border-bottom: 2px solid #00b894;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      .footer ul {
+        list-style: none;
+        padding: 0;
+      }
+      .footer ul li {
+        margin-bottom: 5px;
+      }
+      .footer ul li a {
+        text-decoration: none;
+        color: #ddd;
+      }
+      .footer ul li a:hover {
+        color: #00b894;
+      }
+      .footer .footer-bottom {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+      }
+      .footer img {
+        width: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <%- include('partials/navbar') %>
+
+    <!-- Parallax Sections -->
+    <section id="home" class="pimg1">
+      <div class="ptext">
+        <span class="textBg"> Welcome to Our Website </span>
+      </div>
+    </section>
+    <section class="section section-light">
+      <h2 id="about">About Us</h2>
+      <p>We are committed to delivering quality services that enhance your life.</p>
+    </section>
+    <section id="services" class="pimg2">
+      <div class="ptext">
+        <span class="textBg"> Our Services </span>
+      </div>
+    </section>
+    <section class="section section-dark">
+      <h2>What We Do</h2>
+      <p>From internet services to development, we offer a wide range of solutions.</p>
+    </section>
+    <section id="payments" class="pimg3">
+      <div class="ptext">
+        <span class="textBg"> Easy Payments </span>
+      </div>
+    </section>
+    <section class="section section-dark">
+      <h2 id="contact">Contact Us</h2>
+      <p>Feel free to reach out to us for any inquiries or support.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="contact">
+          <h3>Contact</h3>
+          <p>Amber IT Ltd. Navana Tower (7th Floor)</p>
+          <p>45 Gulshan South C/A, Circle-1</p>
+          <p>Tel: (8802) 222264415</p>
+          <p>Email: info@amberit.com.bd</p>
+        </div>
+        <div class="quick-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home Internet</a></li>
+            <li><a href="#">Corporate Internet</a></li>
+            <li><a href="#">Coverage Area</a></li>
+            <li><a href="#">Hosting & Development</a></li>
+          </ul>
+        </div>
+        <div class="certification">
+          <h3>ISO Certified</h3>
+          
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Amber IT. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
 </html>
