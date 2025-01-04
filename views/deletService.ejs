@@ -73,10 +73,11 @@
           <h2><%= provider.name %></h2>
           <p><%= provider.description %></p>
           <p class="price">$<%= provider.price %></p>
-          <p>Discount: <%= provider.discount %>%</p>
-          <p>Background Color: <%= provider.bgcolor %></p>
-          <p>Panel Color: <%= provider.panelcolor %></p>
-          <p>Text Color: <%= provider.textcolor %></p>
+          <p>Discount: <%= provider.discount %></p>
+          <p>person name: <%= provider.personName %></p>
+          <p>area: <%= provider.area %></p>
+          <p>description: <%= provider.description %></p>
+         
         </div>
         <div class="provider-actions">
           <form action="/delete/delete/<%= provider._id %>" method="post" style="display:inline;">

@@ -14,10 +14,4 @@ router.get('/service', isLoggedIn, (req, res) => {
     });
 
 
-   
-    
-    
-    
-
-
 module.exports = router;

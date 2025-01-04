@@ -8,9 +8,9 @@ const mongoose= require("mongoose");
     type:Number,
     default:0
    },
-   bgcolor:String,
-   panelcolor:String,
-   textcolor:String
+   personName:String,
+   area:String,
+   description:String
 
  });
  module.exports=mongoose.model("provider",providerSchema);

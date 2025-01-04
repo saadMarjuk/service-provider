@@ -26,18 +26,18 @@ router.get('/create', (req, res) => {
 // Route to create a new service
 router.post('/create', upload.single('image'), async (req, res) => {
   try {
-    let { name, price, discount, bgcolor, panelcolor, textcolor } = req.body;
+    let { name, price, discount, personName, area, description } = req.body;
     let imageBuffer = req.file.buffer; // Get the image buffer from memory storage
     let createdProvider = await providerModel.create({
       image: imageBuffer.toString('base64'), // Save image as Base64 string
       name,
       price,
       discount,
-      bgcolor,
-      panelcolor,
-      textcolor
+      personName,
+      area,
+      description
     });
-    res.status(201).send(createdProvider);
+    res.redirect('/delete/list');
   } catch (error) {
     res.status(500).send('Error creating service: ' + error.message);
   }
