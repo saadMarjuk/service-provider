@@ -1,6 +1,7 @@
 const express=require("express");
 const router=express.Router();
 const providerModel = require('../models/provider-model');
+const isLoggedIn = require('../middlewares/isloggedin');
 const multer = require('multer');
 
 
@@ -44,7 +45,7 @@ router.post('/create', upload.single('image'), async (req, res) => {
 });
 
 // Route to serve the provider list 
-router.get('/list', async (req, res) => {
+router.get('/list', isLoggedIn,async (req, res) => {
  try { let providers = await providerModel.find();
      res.render('providerList', { providers }); }
       catch (error) { res.status(500).send('Error retrieving providers: ' + error.message);
